@@ -1,0 +1,87 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ApplicationAPI",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/transaction": {
+            "post": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "User Transaction",
+                "description": "User Transaction here",
+                "operationId": "Transaction",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "source_card_number",
+                                    "target_card_number",
+                                    "cvv2",
+                                    "expire_year",
+                                    "expire_month",
+                                    "password",
+                                    "amount"
+                                ],
+                                "properties": {
+                                    "source_card_number": {
+                                        "type": "number"
+                                    },
+                                    "target_card_number": {
+                                        "type": "number"
+                                    },
+                                    "cvv2": {
+                                        "type": "password"
+                                    },
+                                    "expire_year": {
+                                        "type": "number"
+                                    },
+                                    "expire_month": {
+                                        "type": "number"
+                                    },
+                                    "password": {
+                                        "type": "password"
+                                    },
+                                    "amount": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Transaction Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Transaction Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        }
+    }
+}
